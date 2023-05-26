@@ -1,7 +1,8 @@
+'use client'
 import React, { PropsWithChildren } from "react";
 import { Navbar } from "@/components/navbar";
 
-const Hero = ({ children }: PropsWithChildren) => {
+const Hero = () => {
   return (
     <div className="flex h-[680px] justify-center bg-green-800">
       <Navbar />
