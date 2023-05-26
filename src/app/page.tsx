@@ -1,13 +1,11 @@
 import Hero from "@/components/hero";
-import Image from "next/image";
+import TrustedBy from "@/components/trusted-by";
 
 export default function Home() {
   return (
     <main className="h-[120vh]">
       <Hero />
-      {/* TODO: Popular services */}
-      {/* TODO: Jumbo (Join fiverr) */}
-      {/* TODO: Footer*/}
+      <TrustedBy />
     </main>
   );
 }
