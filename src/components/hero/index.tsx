@@ -1,5 +1,6 @@
-'use client'
-import React, { PropsWithChildren } from "react";
+"use client";
+
+import React from "react";
 import { Navbar } from "@/components/navbar";
 
 const Hero = () => {
@@ -9,8 +10,10 @@ const Hero = () => {
       <section className="flex w-full max-w-7xl flex-row items-center">
         <div className="flex max-w-[650px] flex-col gap-4">
           <h1 className="w-full text-white">
-            <span className="font-semibold text-5xl">
-              Find the right <i className="font-light font-serif">freelance service,</i> right away
+            <span className="text-5xl font-semibold">
+              Find the right{" "}
+              <i className="font-serif font-light">freelance service,</i> right
+              away
             </span>
           </h1>
           <div className="flex w-full flex-row">
