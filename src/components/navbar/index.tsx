@@ -2,7 +2,6 @@
 
 import React, {
   ComponentProps,
-  PropsWithChildren,
   useEffect,
   useState,
 } from "react";
@@ -119,13 +118,13 @@ export const Navbar = ({ className }: ComponentProps<"div">) => {
           <span className="text-green-500">.</span>
         </Link>
         <ul className={`flex list-none items-center gap-5`}>
-          {config.links.map(({ path, text, type, validateUser }) => {
+          {config.links.map(({ id: key, path, text, type, validateUser }) => {
             if (validateUser && !validateUser(currentUser)) {
               return <></>;
             }
 
             return (
-              <ListItem key={text} active={active}>
+              <ListItem key={key} active={active}>
                 <Link href={path}>
                   {type === "Link" ? (
                     text
