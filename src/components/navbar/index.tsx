@@ -13,7 +13,7 @@ import Image from "next/image";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
-interface ListItemProps extends PropsWithChildren {
+interface ListItemProps extends ComponentProps<"li"> {
   active: boolean;
 }
 
@@ -21,8 +21,9 @@ interface MenuProps {
   isSeller: boolean;
 }
 
-const ListItem = ({ children, active }: ListItemProps) => (
+const ListItem = ({ key, children, active }: ListItemProps) => (
   <li
+    key={key}
     className={`p-2 text-sm font-semibold  ${montserrat.className} ${
       active ? "text-gray-700" : "text-white"
     } transition`}
