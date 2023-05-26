@@ -3,7 +3,7 @@ import { User } from "@/types";
 type LinkType = "Link" | "Button";
 
 type HeaderLink = {
-  id: string;
+  key: string;
   path: string;
   text: string;
   type: LinkType;
@@ -26,39 +26,39 @@ export const config: HeaderConfig = {
   },
   links: [
     {
-      id: "fiverr-business",
+      key: "fiverr-business",
       path: "/",
       text: "Fiverr Business",
       type: "Link",
     },
     {
-      id: 'explore',
+      key: 'explore',
       path: "/",
       text: "Explore",
       type: "Link",
     },
     {
-      id: 'english',
+      key: 'english',
       path: "/",
       text: "English",
       type: "Link",
     },
     {
-      id: 'become-seller',
+      key: 'become-seller',
       path: "/",
       text: "Become Seller",
       type: "Link",
       validateUser: (user) => !user?.isSeller,
     },
     {
-      id: 'sign-in',
+      key: 'sign-in',
       path: "/",
       text: "Sign in",
       type: "Link",
       validateUser: (user) => !user,
     },
     {
-      id: 'join',
+      key: 'join',
       path: "/",
       text: "Join",
       type: "Button",

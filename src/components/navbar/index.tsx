@@ -1,10 +1,6 @@
 "use client";
 
-import React, {
-  ComponentProps,
-  useEffect,
-  useState,
-} from "react";
+import React, { ComponentProps, useEffect, useState } from "react";
 import Link from "next/link";
 import { config } from "@/configs/header";
 import { Montserrat } from "next/font/google";
@@ -20,9 +16,8 @@ interface MenuProps {
   isSeller: boolean;
 }
 
-const ListItem = ({ key, children, active }: ListItemProps) => (
+const ListItem = ({ children, active }: ListItemProps) => (
   <li
-    key={key}
     className={`p-2 text-sm font-semibold  ${montserrat.className} ${
       active ? "text-gray-700" : "text-white"
     } transition`}
@@ -118,9 +113,9 @@ export const Navbar = ({ className }: ComponentProps<"div">) => {
           <span className="text-green-500">.</span>
         </Link>
         <ul className={`flex list-none items-center gap-5`}>
-          {config.links.map(({ id: key, path, text, type, validateUser }) => {
+          {config.links.map(({ key, path, text, type, validateUser }) => {
             if (validateUser && !validateUser(currentUser)) {
-              return <></>;
+              return;
             }
 
             return (
