@@ -1,6 +1,11 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, {
+  ComponentProps,
+  PropsWithChildren,
+  useEffect,
+  useState,
+} from "react";
 import Link from "next/link";
 import { config } from "@/configs/header";
 import { Montserrat } from "next/font/google";
@@ -8,13 +13,15 @@ import Image from "next/image";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
-const ListItem = ({
-  children,
-  active,
-}: {
-  children: React.ReactNode;
+interface ListItemProps extends PropsWithChildren {
   active: boolean;
-}) => (
+}
+
+interface MenuProps {
+  isSeller: boolean;
+}
+
+const ListItem = ({ children, active }: ListItemProps) => (
   <li
     className={`p-2 text-sm font-semibold  ${montserrat.className} ${
       active ? "text-gray-700" : "text-white"
@@ -41,7 +48,7 @@ const CategoriesList = () => {
   );
 };
 
-const Menu = ({ isSeller }: { isSeller: boolean }) => (
+const Menu = ({ isSeller }: MenuProps) => (
   <div
     className={`absolute left-[-50px] top-[30px] flex w-[150px] flex-col  overflow-hidden  rounded-md border border-gray-300 bg-white p-2 text-gray-800 shadow-2xl transition-colors`}
   >
@@ -68,7 +75,7 @@ const Menu = ({ isSeller }: { isSeller: boolean }) => (
   </div>
 );
 
-export const Navbar = () => {
+export const Navbar = ({ className }: ComponentProps<"div">) => {
   const [active, setActive] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -96,7 +103,7 @@ export const Navbar = () => {
 
   return (
     <div
-      className={`ustify-center fixed top-0 z-10 flex w-full flex-col items-center transition-all  duration-500 ease-in-out ${
+      className={`fixed top-0 z-10 flex w-full flex-col items-center justify-center transition-all  duration-500 ease-in-out ${
         active ? "bg-white" : " bg-transparent"
       }`}
     >
